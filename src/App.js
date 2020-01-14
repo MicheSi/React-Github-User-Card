@@ -7,7 +7,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    users: []
+    users: [],
+    followers: []
   }
 
   componentDidMount() {
@@ -22,7 +23,19 @@ class App extends Component {
     .catch(err => {
       console.log('There is an error', err)
     })
+    Axios
+    .get('https://api.github.com/users/michesi/followers')
+    .then(res => {
+      console.log(res.data)
+      this.setState({
+        followers: res.data
+      })
+    })
+    .catch(err => {
+      console.log('There is an error', err)
+    })
   }
+  
 
   render () {
     return (
@@ -36,7 +49,14 @@ class App extends Component {
               avatar_url={user.avatar_url}
               login={user.login}
               public_repos={user.public_repos}
-              followers={user.followers}/>
+              followers={user.followers}
+              />
+          ))}
+          <h3>Username of followers:</h3>
+          {this.state.followers.map(follower => (
+            <ul>
+              <li>{follower.login}</li>
+            </ul>
           ))}
         </div>
       </div>

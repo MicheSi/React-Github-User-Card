@@ -7,7 +7,7 @@ const UserCard = props => {
             <img src={props.avatar_url} alt={props.name}/>
             <h4>Username: {props.login}</h4>
             <p>Number of Repos: {props.public_repos}</p>
-            <p>Number of followers: {props.followers}</p>
+            <p>Number of Followers: {props.followers}</p>
         </div>
 
     )
