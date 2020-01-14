@@ -18,6 +18,7 @@ const UserCard = props => {
 
 const classes = useStyles();
 
+
     return (
         <Card className={classes.card}>
             <CardActionArea>
@@ -33,7 +34,7 @@ const classes = useStyles();
             {props.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            {props.login}
+            Username: {props.login}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
             Number of Repos: {props.public_repos}
@@ -44,11 +45,8 @@ const classes = useStyles();
         </CardContent>
         </CardActionArea>
         <CardActions>
-        <Button size="small" color="primary">
-            Share
-        </Button>
-        <Button size="small" color="primary">
-            Learn More
+        <Button size="small" color="primary" type="submit">
+            Profile
         </Button>
         </CardActions>
     </Card>

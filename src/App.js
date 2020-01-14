@@ -18,7 +18,7 @@ class App extends Component {
     .then(res => {
       console.log(res.data)
       this.setState({
-        users: [res.data]
+        users: [res.data],
       })
     })
     .catch(err => {
@@ -53,15 +53,17 @@ class App extends Component {
               followers={user.followers}
               />
           ))}
-          <p>List of Followers:</p>
-          {this.state.followers.map(follower => (
-            <FollowersList
-             key={follower.id}
-             login={follower.login}
-             avatar_url={follower.avatar_url}
-             url={follower.url}
-             />
-          ))}
+          </div>
+          <div className="followersList">
+            <h3>List of Followers:</h3>
+            {this.state.followers.map(follower => (
+              <FollowersList
+              key={follower.id}
+              login={follower.login}
+              avatar_url={follower.avatar_url}
+              url={follower.url}
+              />
+            ))}
         </div>
       </div>
     );
