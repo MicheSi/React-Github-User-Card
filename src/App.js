@@ -41,7 +41,7 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <h1>React Github User App</h1>
+        <h1>React Github User Card</h1>
         <div className='usercard'>
           {this.state.users.map(user => (
             <UserCard
