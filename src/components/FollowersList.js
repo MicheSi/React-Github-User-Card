@@ -40,7 +40,7 @@ const FollowersList = props => {
               >
                 Github Link:
               </Typography>
-               {props.url}
+               <a href={props.url} target='_blank'> {props.url}</a>
             </React.Fragment>
           }
         />

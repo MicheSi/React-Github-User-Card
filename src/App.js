@@ -51,6 +51,7 @@ class App extends Component {
               login={user.login}
               public_repos={user.public_repos}
               followers={user.followers}
+              url={user.html_url}
               />
           ))}
           </div>
@@ -61,7 +62,7 @@ class App extends Component {
               key={follower.id}
               login={follower.login}
               avatar_url={follower.avatar_url}
-              url={follower.url}
+              url={follower.html_url}
               />
             ))}
         </div>
