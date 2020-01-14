@@ -3,9 +3,11 @@ import React from 'react';
 const UserCard = props => {
     return (
         <div>
-            <h3>{props.name}</h3>
-            <img src={props.avatar_url}/>
-            <p>Username: {props.login}</p>
+            <h2>{props.name}</h2>
+            <img src={props.avatar_url} alt={props.name}/>
+            <h4>Username: {props.login}</h4>
+            <p>Number of Repos: {props.public_repos}</p>
+            <p>Number of followers: {props.followers}</p>
         </div>
 
     )

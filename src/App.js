@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-
+import UserCard from './components/UserCard';
 // style imports
 import './App.css';
 
@@ -28,12 +28,17 @@ class App extends Component {
     return (
       <div className="App">
         <h1>React Github User App</h1>
-        {/* <div className='usercard'>
-          {this.state.users.map(user => {
-            <p>{user.name}</p>
-          })}
-
-        </div> */}
+        <div className='usercard'>
+          {this.state.users.map(user => (
+            <UserCard
+              key={user.id}
+              name={user.name}
+              avatar_url={user.avatar_url}
+              login={user.login}
+              public_repos={user.public_repos}
+              followers={user.followers}/>
+          ))}
+        </div>
       </div>
     );
   }
