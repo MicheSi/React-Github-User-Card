@@ -3,6 +3,7 @@ import Axios from 'axios';
 import UserCard from './components/UserCard';
 // style imports
 import './App.css';
+import FollowersList from './components/FollowersList';
 
 
 class App extends Component {
@@ -52,11 +53,14 @@ class App extends Component {
               followers={user.followers}
               />
           ))}
-          <h3>Username of followers:</h3>
+          <p>List of Followers:</p>
           {this.state.followers.map(follower => (
-            <ul>
-              <li>{follower.login}</li>
-            </ul>
+            <FollowersList
+             key={follower.id}
+             login={follower.login}
+             avatar_url={follower.avatar_url}
+             url={follower.url}
+             />
           ))}
         </div>
       </div>
