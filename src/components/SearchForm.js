@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const SearchForm = props => {
-    return (
-        <div className='searchForm'>
-            <form>
-                <label htmlFor='name'>Search for User: </label>
-                <input
-                 id='name'
-                 type='text'
-                 name='textfield'
-                 />
-            </form>
+class SearchForm extends Component {
+    state = {
+        searchText: '',
+    }
 
-        </div>
-    )
+    handleChanges = e => {
+        this.setState({
+            searchText: e.target.value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.changeUser(this.state.searchText)
+        this.setState({
+            searchText: ''
+        })
+    }
+
+    render() {
+        return (
+            <div className='searchForm'>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                     type='text'
+                     name='name'
+                     placeholder='Enter Github Username'
+                     value={this.state.searchText}
+                     onChange={this.handleChanges}
+                     />
+                     <button onClick={this.props.changeUser}>Search</button>
+                </form>
+    
+            </div>
+        )
+    }
 }
 
 export default SearchForm;

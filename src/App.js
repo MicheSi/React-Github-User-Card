@@ -4,12 +4,14 @@ import UserCard from './components/UserCard';
 // style imports
 import './App.css';
 import FollowersList from './components/FollowersList';
+import SearchForm from './components/SearchForm';
 
 
 class App extends Component {
   state = {
     users: [],
-    followers: []
+    followers: [],
+    searchText: ''
   }
 
   componentDidMount() {
@@ -37,15 +39,42 @@ class App extends Component {
     })
   }
 
-  // componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.users !== prevState.users)
+    Axios
+    .get(`https://api.github.com/users/${this.state.searchText}`)
+    .then(res => {
+      console.log(res);
+      this.setState({
+        searchText: res.data.login
+      })
+    })
+    .catch(err => {
+      console.log('You have an error', err)
+    })
+  }
 
-  // }
+  changeUser = e => {
+    e.preventDefault();
+    Axios
+    .get(`https://api.github.com/users/${this.state.searchText}`)
+    .then(res => {
+      console.log(res);
+      this.setState({
+        users: res.data.login
+      })
+    })
+    .catch(err => {
+      console.log('You have an error', err)
+    })
+  }
   
 
   render () {
     return (
       <div className="App">
         <h1>React Github User Card</h1>
+        <SearchForm />
         <div className='usercard'>
           {this.state.users.map(user => (
             <UserCard

@@ -45,7 +45,7 @@ const classes = useStyles();
         </CardContent>
         </CardActionArea>
         <CardActions>
-        <a href={props.url} target='_blank'><Button size="small" color="blueGrey" type="submit">
+        <a href={props.url} target='_blank' rel='noopener noreferrer'><Button size="small" color="blueGrey" type="submit">
            Profile
         </Button></a>
         </CardActions>
