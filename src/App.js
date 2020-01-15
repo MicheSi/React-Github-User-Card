@@ -36,6 +36,10 @@ class App extends Component {
       console.log('There is an error', err)
     })
   }
+
+  // componentDidUpdate(prevProps, prevState) {
+
+  // }
   
 
   render () {
