@@ -26,26 +26,26 @@ const classes = useStyles();
             component="img"
             alt="profile picture"
             height="300"
-            image={props.avatar_url}
-            title={props.name}
+            image={props.user.avatar_url}
+            title={props.user.name}
         />
         <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-            {props.name}
+            {props.user.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            Username: {props.login}
+            Username: {props.user.login}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            Number of Repos: {props.public_repos}
+            Number of Repos: {props.user.public_repos}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-            Number of Followers{props.followers}
+            Number of Followers{props.user.followers}
             </Typography>
         </CardContent>
         </CardActionArea>
         <CardActions>
-        <a href={props.url} target='_blank' rel='noopener noreferrer'><Button size="small" color="blueGrey" type="submit">
+        <a href={props.user.html_url} target='_blank' rel='noopener noreferrer'><Button size="small" color="blueGrey" type="submit">
            Profile
         </Button></a>
         </CardActions>

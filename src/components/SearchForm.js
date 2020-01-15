@@ -30,7 +30,7 @@ class SearchForm extends Component {
                      value={this.state.searchText}
                      onChange={this.handleChanges}
                      />
-                     <button onClick={this.props.changeUser}>Search</button>
+                     <button>Search</button>
                 </form>
     
             </div>

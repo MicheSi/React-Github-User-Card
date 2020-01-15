@@ -9,7 +9,7 @@ import SearchForm from './components/SearchForm';
 
 class App extends Component {
   state = {
-    users: [],
+    user: [],
     followers: [],
     searchText: ''
   }
@@ -18,9 +18,9 @@ class App extends Component {
     Axios
     .get('https://api.github.com/users/michesi')
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       this.setState({
-        users: [res.data],
+        user: res.data
       })
     })
     .catch(err => {
@@ -29,7 +29,7 @@ class App extends Component {
     Axios
     .get('https://api.github.com/users/michesi/followers')
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       this.setState({
         followers: res.data
       })
@@ -40,28 +40,31 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.users !== prevState.users)
+    if (this.state.searchText !== prevState.searchText)
     Axios
     .get(`https://api.github.com/users/${this.state.searchText}`)
     .then(res => {
       console.log(res);
       this.setState({
-        searchText: res.data.login
+        user: res.data
       })
+      console.log(res)
     })
     .catch(err => {
       console.log('You have an error', err)
     })
   }
 
-  changeUser = e => {
-    e.preventDefault();
+  changeUser = newUser => {
+    this.setState({
+      searchText: newUser
+    })
     Axios
     .get(`https://api.github.com/users/${this.state.searchText}`)
     .then(res => {
       console.log(res);
       this.setState({
-        users: res.data.login
+        user: res.data
       })
     })
     .catch(err => {
@@ -74,19 +77,13 @@ class App extends Component {
     return (
       <div className="App">
         <h1>React Github User Card</h1>
-        <SearchForm />
+        <SearchForm changeUser={this.changeUser}/>
         <div className='usercard'>
-          {this.state.users.map(user => (
+          
             <UserCard
-              key={user.id}
-              name={user.name}
-              avatar_url={user.avatar_url}
-              login={user.login}
-              public_repos={user.public_repos}
-              followers={user.followers}
-              url={user.html_url}
+              user={this.state.user}
               />
-          ))}
+          
           </div>
           <div className="followersList">
             <h3>List of Followers:</h3>
