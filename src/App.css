@@ -29,6 +29,7 @@ a:hover {
 
 .App h1 {
   color: white;
+  text-shadow: 2px 2px green;
 }
 
 .usercard {
@@ -43,6 +44,7 @@ a:hover {
 
 .followersList h3 {
   color: white;
+  text-shadow: 2px 2px green;
 }
 
 .MuiButton-label:hover {
