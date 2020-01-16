@@ -23,14 +23,14 @@ class SearchForm extends Component {
         return (
             <div className='searchForm'>
                 <form onSubmit={this.handleSubmit}>
-                    <input
+                    <input className='searchField'
                      type='text'
                      name='name'
                      placeholder='Enter Github Username'
                      value={this.state.searchText}
                      onChange={this.handleChanges}
                      />
-                     <button>Search</button>
+                     <button className='searchBtn'>Search</button>
                 </form>
     
             </div>

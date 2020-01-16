@@ -48,3 +48,22 @@ a:hover {
 .MuiButton-label:hover {
   color: green;
 }
+
+.searchField {
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px inset darkslategray;
+}
+
+.searchBtn {
+  height: 30px;
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: green;
+  color:white;
+  border: 2px outset darkslategray;
+}
+
