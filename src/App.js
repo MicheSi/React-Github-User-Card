@@ -53,6 +53,17 @@ class App extends Component {
     .catch(err => {
       console.log('You have an error', err)
     })
+    Axios
+    .get(`https://api.github.com/users/${this.state.searchText}/followers`)
+    .then(res => {
+      // console.log(res.data)
+      this.setState({
+        followers: res.data
+      })
+    })
+    .catch(err => {
+      console.log('There is an error', err)
+    })
   }
 
   changeUser = newUser => {
@@ -69,6 +80,17 @@ class App extends Component {
     })
     .catch(err => {
       console.log('You have an error', err)
+    })
+    Axios
+    .get(`https://api.github.com/users/${this.state.searchText}/followers`)
+    .then(res => {
+      // console.log(res.data)
+      this.setState({
+        followers: res.data
+      })
+    })
+    .catch(err => {
+      console.log('There is an error', err)
     })
   }
   
